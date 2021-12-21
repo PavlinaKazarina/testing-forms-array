@@ -1,7 +1,7 @@
 <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
   <p>
     <label for="name">Name </label>
-    <input type="text" id="name" name="name" formControlName="name" />
+    <input type="text" id="name" name="name" formControlName="name" required />
   </p>
 
   Skills:
@@ -10,9 +10,9 @@
       <div [formGroupName]="i">
         {{ i }}
         skill name :
-        <input type="text" formControlName="skill" />
+        <input type="text" formControlName="skill" required />
         exp:
-        <input type="text" formControlName="exp" />
+        <input type="text" formControlName="exp" required />
 
         <button (click)="removeSkill(i)">Remove</button>
       </div>
@@ -29,3 +29,4 @@
 </p>
 
 {{ this.skillsForm.value | json }}
+{{ this.skillsForm.valid | json }}
